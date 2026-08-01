@@ -1,0 +1,89 @@
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+# Frontend
+frontend/dist/
+frontend/node_modules/
+
+# Mobile / Expo / React Native / Android / iOS
+mobile/node_modules/
+mobile/.expo/
+mobile/.expo-shared/
+mobile/dist/
+mobile/web-build/
+mobile/android/.gradle/
+mobile/android/build/
+mobile/android/local.properties
+mobile/android/*.keystore
+mobile/android/*.jks
+mobile/ios/build/
+
+# Java / Maven
+target/
+**/target/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Coverage
+coverage/
+
+# Temporales
+*.tmp
+*.temp
+
+# Entorno
+.env
+.env.*
+!.env.example
+
+# Docker local
+*.env.local
+
+# Terraform 
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+*.tfvars
+!.tfvars.example
+
+# Ansible 
+*.vault
+*.password
+
+# Azure (futuro)
+*.azure
+azure-*
+
+# SSH / Certificados
+*.pem
+*.key
+*.pfx
+*.p12
+
+# APK / Build outputs
+*.apk
+*.aab
+*.ipa
+*.keystore
+*.jks
+.env
