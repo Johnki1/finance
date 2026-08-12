@@ -24,7 +24,11 @@ Estado actual post-auditoría Fase 1 y saneamiento parcial Fase 2.
 | `AuthRequest` / `AuthResponse` | `mobile/src/types/auth.ts` vs `packages/shared/src/types/auth.ts` | Conservado en mobile | Contrato congelado; no unificar sin validación completa |
 | `FixedExpense*` / `VariableExpense*` | `mobile/src/services/*Service.ts` vs `packages/shared/src/types/expense.ts` | Conservado en mobile por ahora | Duplicación parcial; requiere migración controlada |
 
+## Estado de fases
+- Fase 1: Completada — Auditoría inicial y eliminación de duplicaciones confirmadas.
+- Fase 2: Completada — Limpieza profunda y consolidación de tipos en `packages/shared`.
+- Fase 3: Completada — `.gitignore` unificado, `.env.example` por módulo y saneamiento de artefactos generados.
+- Fase 4: Completada — Inicialización de Git, commit inicial, remote configurado y push completado.
+
 ## Próximas fases sugeridas
-- Fase 3: Definición de `.gitignore` unificado y saneamiento de artefactos generados.
-- Fase 4: Configuración de secretos y variables de entorno.
-- Fase 5: Infraestructura base Azure / Docker Compose / Nginx.
+- Fase 5: Diseño de infraestructura Azure.
