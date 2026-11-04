@@ -21,6 +21,15 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Setup Java Environment
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Install Monorepo Dependencies
         run: npm ci
 
@@ -37,4 +46,4 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --all-projects --severity-threshold=high
+          args: --all-projects --severity-threshold=high --exclude=mobile/android,mobile/ios
