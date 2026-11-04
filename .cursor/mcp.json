@@ -1,0 +1,11 @@
+{
+    "mcpServers": {
+      "snyk": {
+        "command": "npx",
+        "args": ["-y", "@snyk/mcp-server"],
+        "env": {
+          "SNYK_TOKEN": "2c501842-12ef-4503-9039-1053e2ec807d"
+        }
+      }
+    }
+  }
