@@ -1,7 +1,7 @@
 import * as SecureStore from 'expo-secure-store';
 
-const TOKEN_KEY = 'finance_auth_token';
-const USER_KEY = 'finance_auth_user';
+const sessionSlot = 'auth_token';
+const profileSlot = 'finance_auth_user';
 
 export const secureStorage = {
   async setItem(key: string, value: string): Promise<void> {
@@ -17,29 +17,28 @@ export const secureStorage = {
   },
 
   async saveToken(token: string): Promise<void> {
-    await SecureStore.setItemAsync(TOKEN_KEY, token);
+    await this.setItem(sessionSlot, token);
   },
 
   async getToken(): Promise<string | null> {
-    return SecureStore.getItemAsync(TOKEN_KEY);
+    return this.getItem(sessionSlot);
   },
 
   async deleteToken(): Promise<void> {
-    await SecureStore.deleteItemAsync(TOKEN_KEY);
+    await this.removeItem(sessionSlot);
   },
 
   async saveUser(user: Record<string, unknown>): Promise<void> {
-    const serialized = JSON.stringify(user);
-    await SecureStore.setItemAsync(USER_KEY, serialized);
+    await this.setItem(profileSlot, JSON.stringify(user));
   },
 
   async getUser(): Promise<Record<string, unknown> | null> {
-    const value = await SecureStore.getItemAsync(USER_KEY);
-    if (value) return JSON.parse(value);
-    return null;
+    const value = await this.getItem(profileSlot);
+    if (!value) return null;
+    return JSON.parse(value) as Record<string, unknown>;
   },
 
   async deleteUser(): Promise<void> {
-    await SecureStore.deleteItemAsync(USER_KEY);
+    await this.removeItem(profileSlot);
   },
 };
