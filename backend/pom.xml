@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.0</version>
+		<version>3.5.16</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -28,6 +28,12 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<!-- Security pins (Snyk SCA gate): patched versions above the ones managed by
+		     spring-boot-starter-parent 3.5.16. Remove once the parent ships them. -->
+		<tomcat.version>10.1.61</tomcat.version>
+		<jackson-bom.version>2.21.8</jackson-bom.version>
+		<logback.version>1.5.38</logback.version>
+		<postgresql.version>42.7.14</postgresql.version>
 	</properties>
 	<dependencies>
 		<dependency>

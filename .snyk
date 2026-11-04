@@ -1,0 +1,45 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-BRACES-19963945:
+    - '*':
+        reason: >-
+          No fixed version published (braces 3.0.3 is latest); reached only
+          through metro/micromatch bundler toolchain, not shipped in app
+          runtime. Re-evaluate on Expo SDK upgrade.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JS-DECODEURICOMPONENT-21802484:
+    - '*':
+        reason: >-
+          Reached through query-string@7.1.3 (used by expo-router's forked
+          getPathFromState) > decode-uri-component@0.2.2. The fix only exists in
+          decode-uri-component@0.5.x, whose default-only ESM export breaks
+          query-string@7's plain-function usage; query-string >= 8 cannot be
+          substituted either (its default-only export breaks the namespace
+          import used by expo-router and @react-navigation). Awaiting an
+          expo-router / query-string update.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JS-IMAGESIZE-17295814:
+    - '*':
+        reason: >-
+          metro 0.83 (Expo SDK 54) calls image-size with a file-path string, and
+          image-size 2.x (the fixed line) dropped string input support, so
+          pinning 2.x breaks expo export with a TypeError. Only reachable in the
+          bundler toolchain processing local asset files, not in app runtime.
+          Re-evaluate on the Expo SDK 56 / react-native 0.84 upgrade (metro 0.9x
+          with image-size 2.x).
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JS-IMAGESIZE-17295816:
+    - '*':
+        reason: >-
+          Same as SNYK-JS-IMAGESIZE-17295814: metro 0.83 needs the image-size 1.x
+          string-path API and the fix only exists in 2.x, which breaks expo
+          export. Bundler toolchain only, not app runtime. Re-evaluate on the
+          Expo SDK 56 / react-native 0.84 upgrade.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+patch: {}

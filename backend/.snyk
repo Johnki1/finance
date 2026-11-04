@@ -1,0 +1,98 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.25.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JAVA-ORGGLASSFISHJAXB-20883142:
+    - '*':
+        reason: >-
+          Fix is pushed upstream but not yet published: no fixed version of
+          jaxb-core exists on Maven Central (4.0.9 is the latest release).
+          Exploitation requires unmarshalling untrusted XML documents, which this
+          JSON/JPA application does not do (JAXB is used only for local JPA
+          metadata). Re-check when jaxb-core 4.0.10+ is published.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267072:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267073:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267075:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267077:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267078:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267079:
+    - '*':
+        reason: >-
+          Fixed only in Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops
+          out at Framework 6.2.19, the latest patch of its line. Awaits the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267098:
+    - '*':
+        reason: >-
+          Arbitrary Code Injection in spring-webmvc, fixed only in Spring
+          Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops out at Framework
+          6.2.19, the latest patch of its line. HIGHEST-PRIORITY item for the
+          planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORK-19267438:
+    - '*':
+        reason: >-
+          Directory Traversal in spring-context-support (mail), fixed only in
+          Spring Framework 7.x (Spring Boot 4.x). Boot 3.5.x tops out at
+          Framework 6.2.19, the latest patch of its line. Awaits the planned
+          Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKSECURITY-19267391:
+    - '*':
+        reason: >-
+          Predictable IV with CBC Mode in spring-security-crypto, fixed only in
+          Spring Security 7.x (Spring Boot 4.x). Boot 3.5.x tops out at Security
+          6.5.11, the latest patch of its line. Awaits the planned Spring Boot 4
+          migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+  SNYK-JAVA-ORGSPRINGFRAMEWORKSECURITY-19267441:
+    - '*':
+        reason: >-
+          Timing Attack in spring-security-core, fixed only in Spring Security
+          7.x (Spring Boot 4.x). Boot 3.5.x tops out at Security 6.5.11, the
+          latest patch of its line. Awaits the planned Spring Boot 4 migration.
+        expires: 2027-05-04T00:00:00.000Z
+        created: 2026-11-04T17:48:46.798Z
+patch: {}

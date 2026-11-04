@@ -26,6 +26,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+          cache: 'maven'
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -41,9 +42,15 @@ jobs:
           command: code test
           args: --severity-threshold=high
 
+      # SCA runs with the Snyk CLI directly on the runner instead of the
+      # snyk/actions Docker image: the container inherits the runner's JAVA_HOME,
+      # which points to a path that does not exist inside the image, so Maven
+      # cannot resolve backend/pom.xml ("The JAVA_HOME environment variable is
+      # not defined correctly"). On the runner, actions/setup-java provides a
+      # valid JDK 21 so all five projects (including the Maven one) are scanned.
       - name: Run Snyk Open Source Analysis (SCA)
-        uses: snyk/actions/node@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --all-projects --severity-threshold=high --exclude=android,ios
+        run: |
+          npm install --global snyk
+          snyk test --all-projects --severity-threshold=high --exclude=android,ios
